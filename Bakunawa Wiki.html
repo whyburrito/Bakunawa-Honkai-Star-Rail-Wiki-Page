@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bakunawa | Honkai: Star Rail Wiki</title>
+    <style>
+      /* ADD THIS TO YOUR STYLE BLOCK */
+      @media print {
+        @page {
+          size: auto; /* Allows the browser to determine the height */
+          margin: 15mm; /* Adds a clean margin around the content */
+        }
+        body {
+          background-color: #0e141a !important;
+          height: auto !important; /* Allows the page to be as long as needed */
+          overflow: visible !important;
+        }
+        .wiki-container {
+          width: 100% !important;
+          max-width: 100% !important;
+          height: auto !important; /* Ensures the container expands with your text */
+          display: block !important;
+          margin: 0 !important;
+          padding: 0 !important;
+        }
+        /* This ensures nothing inside the container gets clipped */
+        * {
+          overflow: visible !important;
+        }
+      }
+      /* HSR FANDOM WIKI STYLES & PRINT OVERRIDES */
+      :root {
+        --bg-color: #0e141a;
+        --content-bg: #1a2128;
+        --text-color: #c5c9cc;
+        --heading-color: #f0f0f0;
+        --accent-gold: #dcb871;
+        --border-color: #313843;
+        --infobox-bg: #222931;
+      }
+
+      .header-logo {
+        margin-bottom: 20px;
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 10px;
+      }
+
+      .toc {
+        background: #1a2128;
+        border: 1px solid var(--border-color);
+        padding: 15px;
+        margin-bottom: 20px;
+        font-size: 14px;
+        width: fit-content;
+        min-width: 250px;
+        display: inline-block;
+      }
+
+      body {
+        font-family:
+          "Rubik",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          Roboto,
+          Helvetica,
+          Arial,
+          sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        -webkit-print-color-adjust: exact !important; /* FORCES COLORS IN PDF */
+        print-color-adjust: exact !important;
+      }
+
+      .wiki-container {
+        max-width: 1000px;
+        margin: 0 auto;
+        background-color: var(--content-bg);
+        padding: 30px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        display: flow-root;
+      }
+
+      h1 {
+        color: var(--heading-color);
+        border-bottom: 2px solid var(--accent-gold);
+        padding-bottom: 5px;
+        margin-top: 0;
+        font-size: 28px;
+      }
+
+      h2 {
+        color: var(--heading-color);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 5px;
+        margin-top: 30px;
+        font-size: 22px;
+      }
+
+      /* INFOBOX (SIDEBAR) STYLES */
+      .infobox {
+        float: right;
+        width: 300px;
+        background-color: var(--infobox-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 6px;
+        margin: 0 0 20px 20px;
+        padding: 10px;
+        text-align: center;
+      }
+
+      .infobox h3 {
+        margin: 0 0 10px 0;
+        color: var(--accent-gold);
+        font-size: 18px;
+      }
+
+      .infobox img {
+        max-width: 100%;
+        border-radius: 4px;
+        border: 1px solid #000;
+      }
+
+      .caption {
+        font-size: 12px;
+        color: #999;
+        margin-top: 5px;
+        font-style: italic;
+      }
+
+      .infobox table {
+        width: 100%;
+        margin-top: 10px;
+        border-collapse: collapse;
+        font-size: 14px;
+      }
+
+      .infobox th {
+        text-align: left;
+        padding: 5px;
+        color: var(--heading-color);
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .infobox td {
+        text-align: right;
+        padding: 5px;
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      /* CONTENT STYLES */
+      .intro-def {
+        font-size: 16px;
+        font-weight: 500;
+        color: #fff;
+      }
+
+      ul {
+        padding-left: 20px;
+      }
+
+      li {
+        margin-bottom: 8px;
+      }
+
+      strong {
+        color: var(--accent-gold);
+      }
+
+      /* PDF PRINT FIXES */
+      @media print {
+        body {
+          background-color: var(--content-bg) !important;
+        }
+        .wiki-container {
+          box-shadow: none;
+          border: none;
+          padding: 0;
+        }
+        .infobox {
+          page-break-inside: avoid; /* Prevents the image from splitting across pages */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <div class="wiki-container">
+        <!-- HEADER LOGO AREA -->
+        <div class="header-logo">
+          <img
+            src="https://static.wikia.nocookie.net/houkai-star-rail/images/e/e6/Site-logo.png/revision/latest?cb=20260402052724"
+            style="height: 100px"
+            alt="HSR Logo"
+          />
+          <p><strong>Honkai: Star Rail Wiki</strong></p>
+        </div>
+
+        <h1>Bakunawa</h1>
+
+        <!-- INFOBOX (Satisfies the Visual & Caption Requirement) -->
+        <aside class="infobox">
+          <h3>Bakunawa</h3>
+          <!-- Replace 'YOUR_IMAGE_FILE.jpg' with the actual filename of your AI/Student image -->
+          <img src="YOUR_IMAGE_FILE.jpg" alt="Bakunawa Visual Placeholder" />
+          <div class="caption">
+            [INSERT CAPTION HERE: e.g., "AI-generated concept art of Bakunawa in
+            its Eclipse State."]
+          </div>
+          <table>
+            <tr>
+              <th>Type</th>
+              <td>[Enemy Boss]</td>
+            </tr>
+            <tr>
+              <th>Faction</th>
+              <td>[Insert Faction]</td>
+            </tr>
+            <tr>
+              <th>Weakness</th>
+              <td>[Insert Elements]</td>
+            </tr>
+          </table>
+        </aside>
+
+        <!-- SENTENCE DEFINITION -->
+        <p class="intro-def">
+          <strong>[SENTENCE DEFINITION]:</strong> [Insert your one-sentence,
+          formal definition here. Make sure to define the class, type, and
+          function. e.g., "The Bakunawa is a colossal celestial sea
+          serpent-class boss that functions as a late-game area denial threat by
+          manipulating the field's light level."]
+        </p>
+
+        <!-- TABLE OF CONTENTS BOX -->
+        <div class="toc">
+          <strong>Contents</strong>
+          <ul style="list-style: none; padding-left: 0">
+            <li>1. Enemy Info</li>
+            <li>2. Extended Description</li>
+            <li>3. Lore & Etymology</li>
+          </ul>
+        </div>
+
+        <!-- EXTENDED DEFINITION -->
+        <h2>Extended Definition</h2>
+        <p>
+          [INSERT EXTENDED DEFINITION HERE. Remember to use 2-3 rhetorical
+          strategies (classification, function, analogy, negation, historical,
+          etymology). E.g., "Classified as an anomaly of the Abundance, it
+          functions similarly to the Doomsday Beast but on a massive scale.
+          Unlike traditional bosses (negation)..."]
+        </p>
+
+        <!-- EXTENDED DESCRIPTION -->
+        <h2>Extended Description & Mechanics</h2>
+        <p>
+          [INSERT EXTENDED DESCRIPTION HERE. Use 3+ descriptive strategies
+          (spatial, sensory, functional, comparative, temporal).]
+        </p>
+        <ul>
+          <li>
+            <strong>Appearance & Audio:</strong> [Sensory/Spatial details. E.g.,
+            bioluminescent scales, low resonant hums, massive size taking up the
+            arena.]
+          </li>
+          <li>
+            <strong>Behavior & Animations:</strong> [Functional details. How
+            does it move? What happens when it attacks?]
+          </li>
+          <li>
+            <strong>Combat Stance & Phases:</strong> [Temporal details. E.g.,
+            Phase 1 is coiled, Phase 2 is an untargetable eclipse state.]
+          </li>
+        </ul>
+
+        <!-- LORE & ETYMOLOGY -->
+        <h2>Lore & Etymology</h2>
+        <p>
+          [INSERT LORE HERE. Blend real-world Visayan/Bicolano folklore of the
+          moon-eating serpent with the HSR sci-fi universe. E.g., "According to
+          Xianzhou Alliance databanks, the Bakunawa was an ancient leviathan
+          that attempted to consume the seven artificial satellites..."]
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
