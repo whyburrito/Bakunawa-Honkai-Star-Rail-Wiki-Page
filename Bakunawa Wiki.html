@@ -416,6 +416,91 @@
         background: var(--el-imaginary);
       }
 
+      /* ---------- ABILITY / SKILL BLOCKS ---------- */
+      .skill {
+        background: var(--content-bg-alt);
+        border: 1px solid var(--border-color);
+        border-left: 3px solid var(--accent-gold);
+        border-radius: 4px;
+        padding: 10px 14px;
+        margin: 0 0 10px;
+      }
+      .skill-head {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 5px;
+      }
+      .skill-name {
+        font-weight: 600;
+        color: var(--heading-color);
+        font-size: 15px;
+      }
+      .skill .desc {
+        margin: 0;
+        font-size: 14px;
+      }
+
+      /* Tags (ability type & multiplier) */
+      .tag {
+        display: inline-block;
+        padding: 1px 8px;
+        border-radius: 4px;
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        text-transform: uppercase;
+        background: #2a3543;
+        color: #cdd9e6;
+        border: 1px solid #3a4655;
+      }
+      .tag.mult {
+        background: transparent;
+        color: var(--accent-gold);
+        border-color: var(--accent-gold);
+        text-transform: none;
+      }
+
+      /* ---------- UNLOCK FLOWCHART ---------- */
+      .flow {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: stretch;
+        margin: 18px 0;
+        gap: 6px;
+      }
+      .flow .step {
+        flex: 1;
+        min-width: 150px;
+        background: var(--content-bg-alt);
+        border: 1px solid var(--border-color);
+        border-top: 3px solid var(--accent-gold);
+        border-radius: 6px;
+        padding: 10px 12px;
+        font-size: 13px;
+      }
+      .flow .step .n {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 20px;
+        height: 20px;
+        margin-right: 6px;
+        border-radius: 50%;
+        background: var(--accent-gold);
+        color: #15202e;
+        font-weight: 700;
+        font-size: 12px;
+      }
+      .flow .arrow {
+        display: flex;
+        align-items: center;
+        color: var(--accent-gold);
+        font-size: 20px;
+        font-weight: 700;
+      }
+
       /* ============================================================
          PRINT / PDF
          ============================================================ */
@@ -463,8 +548,13 @@
         .infobox {
           page-break-inside: avoid;
         }
-        h2 {
+        h2,
+        h3 {
           page-break-after: avoid;
+        }
+        .skill,
+        .flow {
+          page-break-inside: avoid;
         }
         * {
           overflow: visible !important;
@@ -499,7 +589,7 @@
         <div class="breadcrumb">
           <div class="crumbs">
             In: <a href="#">Enemies</a>, <a href="#">Bosses</a>,
-            <a href="#">Enemies Weak to Lightning</a>, <i>and more</i>
+            <a href="#">Enemies Weak to Wind</a>, <i>and more</i>
           </div>
           <div class="tools">ENGLISH &nbsp;|&nbsp; EDIT &nbsp;|&nbsp; &#8943;</div>
         </div>
@@ -522,13 +612,9 @@
 
           <!-- Image -->
           <div class="infobox-image">
-            <!-- Replace the placeholder div below with:
-                 <img src="YOUR_IMAGE_FILE.png" alt="Bakunawa" /> -->
-            <div class="placeholder">
-              [INSERT UNIT IMAGE HERE<br />student-made or AI-generated]
-            </div>
+            <img src="img/bakunawa.png" alt="Bakunawa, the Moon-Devourer" />
             <div class="caption">
-              [INSERT CAPTION: e.g., "Bakunawa in its Eclipse State."]
+              Bakunawa, the Moon-Devourer, rising beneath a full moon.
             </div>
           </div>
 
@@ -540,15 +626,22 @@
             </tr>
             <tr>
               <th>Damage Type</th>
-              <td>[Insert Damage Type]</td>
+              <td>
+                <span class="pill quantum">Quantum</span>
+                <span class="pill physical">Physical</span>
+              </td>
             </tr>
             <tr>
               <th>Weaknesses</th>
-              <td>[Insert Weakness Elements]</td>
+              <td>
+                <span class="pill wind">Wind</span>
+                <span class="pill fire">Fire</span>
+                <span class="pill ice">Ice</span>
+              </td>
             </tr>
             <tr>
               <th>Toughness</th>
-              <td>[Insert Toughness]</td>
+              <td>540 (Phase 1) &middot; 270 (Phase 2)</td>
             </tr>
           </table>
 
@@ -564,16 +657,17 @@
             </tr>
             <tr>
               <th>Location</th>
-              <td>[Insert Location / Domain]</td>
+              <td>Echo of War: The First Course of Old</td>
             </tr>
           </table>
         </aside>
 
         <!-- ===== SENTENCE DEFINITION ===== -->
         <p class="intro-def">
-          <strong>Bakunawa</strong>, also known as "The Moon-Devourer",
-          is an <strong>Echo of War Boss Enemy</strong> part of the <strong>Cosmos</strong>
-          faction.
+          <strong>Bakunawa</strong>, also known as "The Moon-Devourer", is an
+          <strong>Echo of War Boss Enemy</strong> of the <strong>Cosmos</strong>
+          faction that serves as a repeatable weekly challenge, pitting
+          Trailblazers against its two-phase, Quantum-and-Physical onslaught.
         </p>
 
         <!-- ===== TABLE OF CONTENTS ===== -->
@@ -586,6 +680,16 @@
             <li><a href="#extended-def">Extended Definition</a></li>
             <li><a href="#description">Description</a></li>
             <li><a href="#lore">Lore &amp; Etymology</a></li>
+            <li><a href="#unlocking">Unlocking the Unit</a></li>
+            <li><a href="#rewards">Rewards</a></li>
+            <li>
+              <a href="#combat">Combat Behavior Pattern</a>
+              <ol>
+                <li><a href="#passives">Core Passive Mechanics</a></li>
+                <li><a href="#phase1">Phase 1: The Offspring of Voracity</a></li>
+                <li><a href="#phase2">Phase 2: The Moon-Devourer</a></li>
+              </ol>
+            </li>
           </ol>
         </div>
 
@@ -594,7 +698,7 @@
         <p>
           Bakunawa is a juvenile <strong>Dusk Leviathan</strong>, a creature of
           massive, untamable, and overwhelming force of chaos or power. It is the
-          offspring of <strong>Oroboros</strong>, the Aeon of Voracity. It is not
+          offspring of <strong>Oroboros</strong>, the <strong>Aeon of Voracity</strong>. It is not
           part of the <strong>Void Song Whale</strong> species, but a sibling of it.
         </p>
 
@@ -626,15 +730,225 @@
         <!-- ===== LORE & ETYMOLOGY ===== -->
         <h2 id="lore">Lore &amp; Etymology</h2>
         <p>
-          Bakunawa is an offspring of Oroboros; it preferred to savor the stars
-          around the empty space left behind by destroyed planets Oroboros
-          devoured. But after the disappearance of the Aeon of Voracity
-          (Oroboros), like its parent's creations, the Void Song Whales,
+          Bakunawa is an offspring of <strong>Oroboros</strong>; it preferred to savor the stars
+          around the empty space left behind by destroyed planets <strong>Oroboros</strong>
+          devoured. But after the disappearance of the <strong>Aeon of Voracity
+          (Oroboros)</strong>, like its parent's creations, the Void Song Whales,
           Bakunawa began to devour without discrimination and developed its
           obsession with eating moons. It is said Bakunawa's fascination with the
           moons started when it accidentally ate one, mistaking it for a shooting
-          star.
+          star. The name itself derives from the <strong>Bakunawa</strong> of
+          Philippine (Visayan) mythology &mdash; a moon-devouring sea serpent
+          blamed for causing eclipses.
         </p>
+
+        <!-- ===== UNLOCKING THE UNIT ===== -->
+        <h2 id="unlocking">Unlocking the Unit</h2>
+        <p>
+          As the Astral Express continues its journey, it is halted by a horde of
+          Void Song Whales intercepting the star rails, triggering the Trailblaze
+          Mission <strong><em>"Hors d'oeuvre: Upon the Debris of Hubris."</em></strong> Unlike
+          standard playable characters, Bakunawa cannot be pulled from Warp
+          banners &mdash; it must be unlocked as an endgame challenge node through
+          the following steps:
+        </p>
+        <ol>
+          <li>
+            <strong>Complete the prerequisite mission.</strong> Finish the
+            Trailblaze Mission <strong><em>"Aperitif: Taste the Swarm"</em></strong> to trigger the
+            follow-up star rail crisis.
+          </li>
+          <li>
+            <strong>Clear the interception quest.</strong> Defeat every combat
+            encounter in <strong><em>"Hors d'oeuvre: Upon the Debris of Hubris"</em></strong> to
+            disperse the Void Song Whales blocking the Express.
+          </li>
+          <li>
+            <strong>Locate the domain challenge.</strong> Open your Interastral
+            Guide, navigate to the <strong>Echo of War</strong> tab, and teleport
+            to <strong><em>"Echo of War: The First Course of Old"</em></strong> to begin the weekly
+            boss fight.
+          </li>
+        </ol>
+
+        <div class="flow">
+          <div class="step">
+            <span class="n">1</span>Complete <em>Aperitif: Taste the Swarm</em>
+          </div>
+          <div class="arrow">&#9656;</div>
+          <div class="step">
+            <span class="n">2</span>Clear
+            <em>Hors d'oeuvre: Upon the Debris of Hubris</em>
+          </div>
+          <div class="arrow">&#9656;</div>
+          <div class="step">
+            <span class="n">3</span>Enter
+            <em>Echo of War: The First Course of Old</em>
+          </div>
+        </div>
+
+        <!-- ===== REWARDS ===== -->
+        <h2 id="rewards">Rewards</h2>
+        <p>
+          Defeating Bakunawa and clearing
+          <em>"Echo of War: The First Course of Old"</em> grants the following
+          rewards:
+        </p>
+        <ul>
+          <li>Trace Material &mdash; <strong>Saliva of a Dusk Leviathan</strong></li>
+          <li>Relics and Credits</li>
+          <li>4&#9733; Light Cones</li>
+          <li>Lucent Afterglow</li>
+          <li>
+            <strong>First-clear bonus:</strong> the Trailblaze Fashion outfit
+            <strong>"Leviathan Headband"</strong>
+          </li>
+        </ul>
+
+        <!-- ===== COMBAT BEHAVIOR PATTERN ===== -->
+        <h2 id="combat">Combat Behavior Pattern</h2>
+        <p>
+          Bakunawa shifts through two distinct combat forms, wielding mixed
+          Quantum and Physical attacks while punishing teams that lean on its
+          protected elements.
+        </p>
+        <p>
+          <strong>Damage Output:</strong>
+          <span class="pill quantum">Quantum</span>
+          <span class="pill physical">Physical</span>
+          <span class="tag">True</span>
+        </p>
+        <p>
+          <strong>Weaknesses:</strong>
+          <span class="pill wind">Wind</span>
+          <span class="pill fire">Fire</span>
+          <span class="pill ice">Ice</span>
+        </p>
+
+        <h3 id="passives">Core Passive Mechanics</h3>
+        <div class="skill">
+          <div class="skill-head">
+            <span class="skill-name">Serpent's Glare</span>
+            <span class="tag">Debuff</span>
+          </div>
+          <p class="desc">
+            Applied automatically at the start of battle. This global aura
+            permanently lowers your party's ATK and DEF. It also grants the
+            <strong>Underside of the Moon</strong> buff to the boss's summoned
+            fragments, doubling their Physical and Quantum damage.
+          </p>
+        </div>
+        <div class="skill">
+          <div class="skill-head">
+            <span class="skill-name">Salt &amp; Pepper</span>
+            <span class="tag">Buff</span>
+          </div>
+          <p class="desc">
+            For every Wind, Fire, or Ice character on your team, Bakunawa gains
+            <strong>+15% DMG dealt</strong>, <strong>-15% DMG taken</strong>, and
+            its Toughness bar becomes immune to reduction. Persists until the
+            boss's shield is fully depleted.
+          </p>
+        </div>
+        <p>
+          <strong>Tip:</strong> Although Wind, Fire, and Ice break Bakunawa's
+          Toughness fastest, every Wind, Fire, or Ice unit on your team also feeds
+          <em>Salt &amp; Pepper</em>. Balance your weakness-breakers against the
+          buff they grant &mdash; or burst its shield quickly to strip the
+          protection before it snowballs.
+        </p>
+
+        <h3 id="phase1">Phase 1: The Offspring of Voracity</h3>
+        <div class="skill">
+          <div class="skill-head">
+            <span class="skill-name">Serpent's Tears</span>
+            <span class="tag">Talent</span>
+          </div>
+          <p class="desc">
+            Summons 4 <strong>Juvenile Black Holes</strong>. Damage dealt to them
+            increases the damage of the upcoming Knife for Savory. Afterward, any
+            remaining Juvenile Black Holes morph into
+            <strong>Limbs of the Devourer</strong> minions.
+          </p>
+        </div>
+        <div class="skill">
+          <div class="skill-head">
+            <span class="skill-name">Serpent's Fork</span>
+            <span class="tag">Single Target</span>
+            <span class="pill physical">Physical</span>
+            <span class="tag mult">300% ATK</span>
+          </div>
+          <p class="desc">Deals Physical DMG to a single target.</p>
+        </div>
+        <div class="skill">
+          <div class="skill-head">
+            <span class="skill-name">Knife for Savory</span>
+            <span class="tag">AoE</span>
+            <span class="pill quantum">Quantum</span>
+            <span class="tag mult">400-500% ATK</span>
+          </div>
+          <p class="desc">Deals Quantum DMG to all targets.</p>
+        </div>
+        <div class="skill">
+          <div class="skill-head">
+            <span class="skill-name">A Spoonful of the Cosmos</span>
+            <span class="tag">Ultimate</span>
+            <span class="tag mult">500% ATK True</span>
+          </div>
+          <p class="desc">
+            If any Serpent's Tears remain, Bakunawa devours them, gaining a
+            stacking Quantum and Physical DMG buff based on the number eaten, then
+            deals True DMG to the entire party.
+          </p>
+        </div>
+
+        <h3 id="phase2">Phase 2: The Moon-Devourer</h3>
+        <div class="skill">
+          <div class="skill-head">
+            <span class="skill-name">Hunger of a Leviathan</span>
+            <span class="tag">Phase Transition</span>
+          </div>
+          <p class="desc">
+            Triggered once all <strong>Limbs of the Devourer</strong> are
+            eliminated. Bakunawa evolves into
+            <strong>"The Moon-Devourer,"</strong> raising its Physical and Quantum
+            output to <strong>450%</strong> and draining
+            <strong>5% of each party member's Max HP</strong> every round.
+          </p>
+        </div>
+        <div class="skill">
+          <div class="skill-head">
+            <span class="skill-name">Remnants of the Moon</span>
+            <span class="tag">Single Target</span>
+            <span class="pill quantum">Quantum</span>
+            <span class="tag mult">450% ATK</span>
+          </div>
+          <p class="desc">Fires a precise beam at the highest-threat character.</p>
+        </div>
+        <div class="skill">
+          <div class="skill-head">
+            <span class="skill-name">Fangs of Lunar Taste</span>
+            <span class="tag">AoE</span>
+            <span class="pill physical">Physical</span>
+            <span class="tag mult">600% ATK</span>
+          </div>
+          <p class="desc">
+            Rears back and strikes the entire field with massive Physical DMG.
+          </p>
+        </div>
+        <div class="skill">
+          <div class="skill-head">
+            <span class="skill-name">Moon Devourer of New</span>
+            <span class="tag">Enraged Ultimate</span>
+            <span class="tag mult">700% ATK True</span>
+          </div>
+          <p class="desc">
+            After 5 turns, Bakunawa absorbs all incoming damage, then unleashes
+            True DMG to all targets and enters <strong>Serpent's Hunger</strong>
+            &mdash; a permanent <strong>x3 multiplier</strong> to its Quantum and
+            Physical attacks.
+          </p>
+        </div>
       </div>
     </div>
   </body>
